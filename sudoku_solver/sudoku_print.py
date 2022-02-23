@@ -1,3 +1,6 @@
+from sudoku_solver.reader import read_sudoku
+
+
 def sudoku_print(board: str):
     board = board.replace("0", " ")
     for line in range(9):
@@ -7,11 +10,7 @@ def sudoku_print(board: str):
 
 
 if __name__ == '__main__':
-    with open('../sudoku.csv') as f:
-        f.readline()  # Skip the header line
-        s = f.readline()
-
-    puzzle, solution = s.split(",")
+    puzzle, solution = read_sudoku(0)
 
     print(puzzle)
     print(solution)
