@@ -14,9 +14,9 @@ board = (
 @pytest.mark.parametrize(
     "row_index,expected_digits",
     [
-        (0, ["7", "4", "3"]),
-        (1, ["4", "9", "6", "1"]),
-        (8, ["7", "4", "8", "2"]),
+        (0, {"7", "4", "3"}),
+        (1, {"4", "9", "6", "1"}),
+        (8, {"7", "4", "8", "2"}),
     ],
 )
 @pytest.mark.parametrize("column_index", list(range(9)))
@@ -27,9 +27,9 @@ def test_get_digits_in_row(row_index, column_index, expected_digits):
 @pytest.mark.parametrize(
     "column_index,expected_digits",
     [
-        (0, ["8", "3", "9"]),
-        (1, ["7", "4", "9", "5", "8"]),
-        (8, ["3", "1", "5", "2"]),
+        (0, {"8", "3", "9"}),
+        (1, {"7", "4", "9", "5", "8"}),
+        (8, {"3", "1", "5", "2"}),
     ],
 )
 @pytest.mark.parametrize("row_index", list(range(9)))
@@ -39,13 +39,13 @@ def test_get_digits_in_column(row_index, column_index, expected_digits):
 
 @pytest.mark.parametrize(
     "position,expected_digits",
-    [(position, ["7", "4", "8"]) for position in [0, 1, 2, 9, 10, 11, 18, 19, 20]]
+    [(position, {"7", "4", "8"}) for position in [0, 1, 2, 9, 10, 11, 18, 19, 20]]
     + [
-        (position, ["9", "6", "3", "4"])
+        (position, {"9", "6", "3", "4"})
         for position in [3, 4, 5, 12, 13, 14, 21, 22, 23]
     ]
     + [
-        (position, ["9", "1", "5", "8", "2"])
+        (position, {"9", "1", "5", "8", "2"})
         for position in [60, 61, 62, 69, 70, 71, 78, 79, 80]
     ],
 )
