@@ -1,3 +1,5 @@
+from tqdm import tqdm
+
 from sudoku_solver.identify_potential_digits import identify_potential_digits
 from sudoku_solver.reader import read_sudoku
 
@@ -20,7 +22,7 @@ def solve(board):
 if __name__ == "__main__":
     num_tests = 10000
     correct = 0
-    for i in range(num_tests):
+    for i in tqdm(range(num_tests)):
         puzzle, solution = read_sudoku(1)
         correct += solve(puzzle) == solution
 

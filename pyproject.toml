@@ -6,6 +6,7 @@ authors = ["Jonas Meinertz Hansen <jonas@meinertz.org>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+tqdm = "^4.62.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
