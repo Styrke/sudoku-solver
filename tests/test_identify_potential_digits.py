@@ -4,6 +4,7 @@ from sudoku_solver.identify_potential_digits import (
     get_digits_in_row,
     get_digits_in_column,
     get_digits_in_sector,
+    identify_potential_digits,
 )
 
 board = (
@@ -51,3 +52,17 @@ def test_get_digits_in_column(row_index, column_index, expected_digits):
 )
 def test_get_digits_in_sector(position, expected_digits):
     assert get_digits_in_sector(position, board) == expected_digits
+
+
+@pytest.mark.parametrize(
+    "position,expected_digits",
+    [
+        (0, {"1", "2", "5", "6"}),
+        (1, {"1", "2", "6"}),
+        (3, {"2", "5"}),
+        (9, {"2", "5"}),
+        (79, {"6"}),
+    ],
+)
+def test_identify_potential_digits(position, expected_digits):
+    assert identify_potential_digits(position, board) == expected_digits

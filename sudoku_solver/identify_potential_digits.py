@@ -27,3 +27,11 @@ def get_digits_in_sector(position: int, board: str) -> Set[str]:
         for col in cols
         if board[row * 9 + col] != "0"
     }
+
+
+def identify_potential_digits(position: int, board: str) -> Set[str]:
+    row = set(get_digits_in_row(position, board))
+    column = set(get_digits_in_column(position, board))
+    sector = set(get_digits_in_sector(position, board))
+    all = set(str(digit) for digit in range(1, 10))
+    return all.difference(row, column, sector)
